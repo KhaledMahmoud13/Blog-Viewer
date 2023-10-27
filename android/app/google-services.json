@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999167609499",
+    "project_id": "blog-viewer-82209",
+    "storage_bucket": "blog-viewer-82209.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999167609499:android:be24548bbda32e5554d43e",
+        "android_client_info": {
+          "package_name": "com.khaled.blog_viewer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWcYGvYweMc1dp7EvyE_A-Fv0SHvcAmK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
