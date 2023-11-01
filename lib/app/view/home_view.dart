@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeView extends GetView<BottomNavController> {
-  const HomeView({super.key});
+class HomeView extends StatelessWidget {
+  HomeView({super.key});
+
+  final controller = Get.find<BottomNavController>();
 
   @override
   Widget build(BuildContext context) {

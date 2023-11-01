@@ -17,8 +17,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'components/default_button.dart';
 
-class EditProfileView extends GetView<UserController> {
+class EditProfileView extends StatelessWidget {
   EditProfileView({super.key});
+
+  final userController = Get.find<UserController>();
 
   late TextEditingController _firstnameController;
   late TextEditingController _lastnameController;
@@ -28,11 +30,11 @@ class EditProfileView extends GetView<UserController> {
   @override
   Widget build(BuildContext context) {
     _firstnameController =
-        TextEditingController(text: controller.currentUser.firstname);
+        TextEditingController(text: userController.currentUser.firstname);
     _lastnameController =
-        TextEditingController(text: controller.currentUser.lastname);
+        TextEditingController(text: userController.currentUser.lastname);
     _emailController =
-        TextEditingController(text: controller.currentUser.email);
+        TextEditingController(text: userController.currentUser.email);
 
     return Scaffold(
       body: SafeArea(
@@ -55,20 +57,20 @@ class EditProfileView extends GetView<UserController> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: ColorManager.white,
-                        image: controller.imagePath.value != ''
+                        image: userController.imagePath.value != ''
                             ? DecorationImage(
                                 image:
-                                    FileImage(File(controller.imagePath.value)),
+                                    FileImage(File(userController.imagePath.value)),
                                 fit: BoxFit.contain,
                               )
-                            : controller.currentUser.profileImage == 'null'
+                            : userController.currentUser.profileImage == 'null'
                                 ? const DecorationImage(
                                     image: AssetImage(ImageAssets.placeholder),
                                     fit: BoxFit.contain,
                                   )
                                 : DecorationImage(
                                     image: NetworkImage(
-                                      controller.imageUrl.value,
+                                      userController.imageUrl.value,
                                     ),
                                     fit: BoxFit.contain,
                                   ),
@@ -117,7 +119,7 @@ class EditProfileView extends GetView<UserController> {
                 const SizedBox(height: AppSize.s20),
                 DefaultButton(
                   child: Obx(
-                    () => controller.requestStatus.value ==
+                    () => userController.requestStatus.value ==
                             RequestStatus.loading
                         ? CircularProgressIndicator(color: ColorManager.white)
                         : Text(
@@ -130,16 +132,16 @@ class EditProfileView extends GetView<UserController> {
                           ),
                   ),
                   onPressed: () async {
-                    await controller.updateUserInformation(
-                      controller.currentUser.id!,
+                    await userController.updateUserInformation(
+                      userController.currentUser.id!,
                       _firstnameController.text,
                       _lastnameController.text,
-                      controller.imagePath.value == ''
-                          ? controller.currentUser.profileImage
-                          : controller.currentUser.email.toId(),
+                      userController.imagePath.value == ''
+                          ? userController.currentUser.profileImage!
+                          : userController.currentUser.email.toId(),
                     );
-                    await controller.uploadImageToFirebaseStorage(
-                      controller.imagePath.value,
+                    await userController.uploadImageToFirebaseStorage(
+                      userController.imagePath.value,
                     );
                   },
                 ),

@@ -13,8 +13,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'components/default_text_form_widget.dart';
 
-class SignInView extends GetView<AuthenticationController> {
+class SignInView extends StatelessWidget {
   SignInView({super.key});
+
+  final authController = Get.find<AuthenticationController>();
 
   final _emailController = TextEditingController();
 
@@ -86,7 +88,7 @@ class SignInView extends GetView<AuthenticationController> {
                 const SizedBox(height: AppSize.s20),
                 Obx(
                   () => DefaultButton(
-                    child: controller.requestStatus.value ==
+                    child: authController.requestStatus.value ==
                             RequestStatus.loading
                         ? CircularProgressIndicator(color: ColorManager.white)
                         : Text(
@@ -99,10 +101,10 @@ class SignInView extends GetView<AuthenticationController> {
                           ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        await controller.signIn(
+                        await authController.signIn(
                             _emailController.text, _passwordController.text);
-                        print(controller.requestStatus.value);
-                        if (controller.requestStatus.value ==
+                        print(authController.requestStatus.value);
+                        if (authController.requestStatus.value ==
                             RequestStatus.loaded) {
                           Get.offNamed(Routes.splashRoute);
                         }

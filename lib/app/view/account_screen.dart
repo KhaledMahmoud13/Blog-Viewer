@@ -14,9 +14,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AccountScreen extends GetView<UserController> {
+class AccountScreen extends StatelessWidget {
   AccountScreen({super.key});
 
+  final userController = Get.find<UserController>();
   final authenticationController = Get.find<AuthenticationController>();
   final bottomNavController = Get.find<BottomNavController>();
 
@@ -66,14 +67,14 @@ class AccountScreen extends GetView<UserController> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: ColorManager.grey,
-                        image: controller.imageUrl.value == 'null'
+                        image: userController.imageUrl.value == 'null'
                             ? const DecorationImage(
                                 image: AssetImage(ImageAssets.placeholder),
                                 fit: BoxFit.contain,
                               )
                             : DecorationImage(
                                 image: NetworkImage(
-                                  controller.imageUrl.value,
+                                  userController.imageUrl.value,
                                 ),
                                 fit: BoxFit.contain,
                               ),
@@ -82,7 +83,7 @@ class AccountScreen extends GetView<UserController> {
                   ),
                   const SizedBox(width: AppSize.s20),
                   Text(
-                    controller.currentUser.fullName,
+                    userController.currentUser.fullName,
                     style: GoogleFonts.titilliumWeb(
                       fontWeight: FontWeightManager.semiBold,
                       fontSize: FontSize.s22.sp,

@@ -10,10 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostView extends GetView<PostsController> {
+class PostView extends StatelessWidget {
   PostView({super.key});
 
-  final UserController userController = Get.find<UserController>();
+  final postsController = Get.find<PostsController>();
+  final userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +68,9 @@ class PostView extends GetView<PostsController> {
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: controller.posts.length,
+                itemCount: postsController.posts.length,
                 itemBuilder: (context, index) => PostItem(
-                  post: controller.posts[index],
+                  post: postsController.posts[index],
                 ),
               ),
             ],

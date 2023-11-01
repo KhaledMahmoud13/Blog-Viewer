@@ -1,4 +1,3 @@
-import 'package:blog_viewer/app/model/api_user.dart';
 import 'package:blog_viewer/app/model/post.dart';
 import 'package:blog_viewer/app/model/user_model.dart';
 import 'package:blog_viewer/app/repository/posts_repository.dart';

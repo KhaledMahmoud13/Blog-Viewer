@@ -18,8 +18,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignUpView extends GetView<AuthenticationController> {
+class SignUpView extends StatelessWidget {
   SignUpView({super.key});
+
+  final authController = Get.find<AuthenticationController>();
 
   final _firstnameController = TextEditingController();
   final _lastnameController = TextEditingController();
@@ -61,14 +63,14 @@ class SignUpView extends GetView<AuthenticationController> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: ColorManager.white,
-                        image: controller.imagePath.value == ''
+                        image: authController.imagePath.value == ''
                             ? const DecorationImage(
                                 image: AssetImage(ImageAssets.placeholder),
                                 fit: BoxFit.contain,
                               )
                             : DecorationImage(
                                 image:
-                                    FileImage(File(controller.imagePath.value)),
+                                    FileImage(File(authController.imagePath.value)),
                                 fit: BoxFit.contain,
                               ),
                       ),
@@ -129,7 +131,7 @@ class SignUpView extends GetView<AuthenticationController> {
                 const SizedBox(height: AppSize.s35),
                 Obx(
                   () => DefaultButton(
-                    child: controller.requestStatus.value ==
+                    child: authController.requestStatus.value ==
                             RequestStatus.loading
                         ?  CircularProgressIndicator(color: ColorManager.white)
                         : Text(
@@ -142,19 +144,19 @@ class SignUpView extends GetView<AuthenticationController> {
                           ),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        await controller.signUp(
+                        await authController.signUp(
                           UserModel(
                             firstname: _firstnameController.text,
                             lastname: _lastnameController.text,
                             email: _emailController.text,
-                            profileImage: controller.imagePath.value == ''
+                            profileImage: authController.imagePath.value == ''
                                 ? 'null'
                                 : _emailController.text.toId(),
                           ),
                           _passwordController.text,
                         );
-                        print(controller.requestStatus.value);
-                        if (controller.requestStatus.value ==
+                        print(authController.requestStatus.value);
+                        if (authController.requestStatus.value ==
                             RequestStatus.loaded) {
                           Get.offNamed(Routes.splashRoute);
                         }
