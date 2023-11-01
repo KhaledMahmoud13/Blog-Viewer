@@ -9,7 +9,7 @@
 
 - **Add Post Functionality**: Ability for users to add their own blog posts, which are then stored in Firebase's real-time database.
 
-- **User Profiles**: Profiles for each user, displaying their posts and other relevant information.
+- **User Profiles**: Profiles for each user, relevant information.
 
 - **Firebase Integration**: Integration with Firebase for authentication, real-time database, and storage of user data and blog posts.
 
