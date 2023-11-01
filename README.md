@@ -13,5 +13,6 @@
 
 - **Firebase Integration**: Integration with Firebase for authentication, real-time database, and storage of user data and blog posts.
 
-#### Screenshots :
-![](https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/login.jpg) https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/signup.jpg ![](https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/home.jpg) ![](https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/addpost.jpg) ![](https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/account.jpg)
+#### Screenshots:
+
+<img src="https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/login.jpg" width="300" height="200"> <img src="https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/signup.jpg" width="300" height="200"> <img src="https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/home.jpg" width="300" height="200"> <img src="https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/addpost.jpg" width="300" height="200"> <img src="https://github.com/KhaledMahmoud13/Blog-Viewer/blob/main/screenshots/account.jpg" width="300" height="200">
